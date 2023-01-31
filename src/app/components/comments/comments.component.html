@@ -1,0 +1,64 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <h2>Comments</h2>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <a href="">
+          <h5 id="commenter" class="mx-2 text-primary" data-mdb-animation="slide-out-right">Everyone</h5>
+        </a>
+        <a href="">
+          <h5 id="commenter" class="mx-2 text-primary" data-mdb-animation="slide-out-right">Just Friends</h5>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <div class="row">
+        <div class="col-12">
+          <input type="text" class="form-control" placeholder="Add a Comment" #comment (input)="getCommentVal(comment.value)" required>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-outline-primary mx-4" (click)="getComment(comment)">Send</button>
+        <button class="btn btn-success">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <div class="card mt-3" *ngIf="commentSts">
+      <div class="card-body">
+        <div class="d-flex">
+          <i class="bi bi-person-badge mx-2" style="font-size: 1.5rem;"></i>
+         <h4>{{username}}</h4>
+        </div>
+        <p>{{commentArea}}</p>
+        <div class="d-flex ">
+          <i class=" mx-1" [ngClass]="likebtn ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'" style="font-size: 2rem;"
+            (click)="likeChange(likebtn)"></i>
+          <i class="" [ngClass]="smilebtn ? 'bi bi-emoji-smile-fill text-primary' : 'bi bi-emoji-smile'"
+            style="font-size: 2rem;" (click)="smileChange(smilebtn)"></i>
+        </div>
+        <div class="d-flex justify-content-end">
+          <h5>{{"0"+commentMounth+"."}}</h5>
+          <h5>{{"0"+commentDay+"."}}</h5>
+          <h5>{{commentYear}}</h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-4 mt-3">
+    <ul class="list-group">
+      <li class="list-group-item active text-center">Categories</li>
+      <li class="list-group-item ">All Comments</li>
+      <li class="list-group-item ">Most Read</li>
+      <li class="list-group-item ">Favorites</li>
+      <li class="list-group-item ">Most Relevant</li>
+    </ul>
+  </div>
+</div>
